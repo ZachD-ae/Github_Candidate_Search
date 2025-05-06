@@ -18,37 +18,37 @@ const SavedCandidates = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-900 to-black text-white p-6">
-      <h1 className="text-4xl font-bold text-center mb-6">Potential Candidates</h1>
-      <table className="w-full text-left border-collapse">
+    <main>
+      <h1>Potential Candidates</h1>
+      <table className="table">
         <thead>
-          <tr className="bg-black text-white">
-            <th className="p-2 border">Image</th>
-            <th className="p-2 border">Name</th>
-            <th className="p-2 border">Location</th>
-            <th className="p-2 border">Email</th>
-            <th className="p-2 border">Company</th>
-            <th className="p-2 border">Bio</th>
-            <th className="p-2 border">Reject</th>
+          <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Email</th>
+            <th>Company</th>
+            <th>Bio</th>
+            <th>Reject</th>
           </tr>
         </thead>
         <tbody>
           {saved.map((c) => (
-            <tr key={c.id} className="bg-gray-900 border">
-              <td className="p-2 border"><img src={c.avatar_url} alt={c.login} className="w-12 h-12 rounded-full" /></td>
-              <td className="p-2 border font-bold">{c.name} <span className="italic">({c.login})</span></td>
-              <td className="p-2 border">{c.location || 'N/A'}</td>
-              <td className="p-2 border text-blue-400">{c.email || 'N/A'}</td>
-              <td className="p-2 border">{c.company || 'N/A'}</td>
-              <td className="p-2 border">{c.bio || 'N/A'}</td>
-              <td className="p-2 border text-center">
-                <button onClick={() => removeCandidate(c.id)} className="text-2xl bg-red-600 rounded-full w-8 h-8 flex items-center justify-center">−</button>
+            <tr key={c.id}>
+              <td><img src={c.avatar_url} alt={c.login} className="avatar" /></td>
+              <td><strong>{c.name}</strong> <em>({c.login})</em></td>
+              <td>{c.location || 'N/A'}</td>
+              <td><a href={`mailto:${c.email}`}>{c.email || 'N/A'}</a></td>
+              <td>{c.company || 'N/A'}</td>
+              <td>{c.bio || 'N/A'}</td>
+              <td>
+                <button className="reject-button" onClick={() => removeCandidate(c.id)}>−</button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-    </div>
+    </main>
   );
 };
 

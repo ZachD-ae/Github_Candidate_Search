@@ -1,10 +1,20 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Nav = () => {
   return (
-    <nav className="flex gap-4 p-4 bg-gray-800 text-white">
-      <Link to="/">Search Candidates</Link>
-      <Link to="/SavedCandidates">Saved Candidates</Link>
+    <nav className="nav">
+      <ul className="nav-list">
+        <li className="nav-item">
+          <NavLink to="/" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
+            Home
+          </NavLink>
+        </li>
+        <li className="nav-item">
+          <NavLink to="/SavedCandidates" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
+            Saved Candidates
+          </NavLink>
+        </li>
+      </ul>
     </nav>
   );
 };
