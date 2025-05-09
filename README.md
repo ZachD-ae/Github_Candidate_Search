@@ -76,11 +76,6 @@ Open [http://localhost:5173](http://localhost:5173) to view the app in your brow
 
 ---
 
-## 📸 Screenshots (optional)
-
-*You can insert screenshots of the Candidate Search and Saved Candidates pages here.*
-
----
 
 ## ✅ Future Improvements
 
